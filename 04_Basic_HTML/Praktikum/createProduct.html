@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+  </head>
+  <body>
+    <!-- Form Create Product -->
+    <h1>Create Product</h1>
+    <h2>Detail Product</h2>
+    <form>
+      <div>
+        <label for="productName">Product name :</label><br />
+        <input
+          type="text"
+          id="productName"
+          name="productName"
+          required
+          minlength="6"
+          maxlength="50"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="productCategory">Product Category :</label><br />
+        <select id="productCategory" name="productCategory" required>
+          <option value="">Select Category</option>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label>Product Freshness :</label><br />
+        <input
+          type="radio"
+          id="brandNew"
+          name="productFreshness"
+          value="brandNew"
+          required
+        />
+        <label for="brandNew">Brand New</label><br />
+        <input
+          type="radio"
+          id="secondHand"
+          name="productFreshness"
+          value="secondHand"
+          required
+        />
+        <label for="secondHand">Second Hand</label><br />
+        <input
+          type="radio"
+          id="refurbished"
+          name="productFreshness"
+          value="refurbished"
+          required
+        />
+        <label for="refurbished">Refurbished</label>
+      </div>
+      <br />
+      <div>
+        <label for="productImage">Image of Product</label>
+        <input type="file" id="productImage" name="productImage" required />
+      </div>
+      <br />
+      <div>
+        <label for="additionalDescription">Additional Description</label><br />
+        <textarea
+          id="additionalDescription"
+          name="additionalDescription"
+          rows="4"
+          cols="50"
+          required
+        ></textarea>
+      </div>
+      <br />
+      <div>
+        <label for="productPrice">Product price :</label><br />
+        <input
+          type="text"
+          id="productPrice"
+          name="productPrice"
+          required
+          pattern="\d+"
+        />
+      </div>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
