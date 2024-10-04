@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="">
+  <header class="bg-white shadow">
+    <nav class="container mx-auto px-6 py-3">
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="text-xl text-gray-700 flex-1 text-center md:text-left font-roboto font-medium">
+          Simple header
+        </div>
+
+        <div class="items-center md:hidden">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div id="menu"
+          class="hidden w-full md:w-auto md:flex justify-center items-center space-x-4 space-y-3 md:space-y-0 my-2 font-roboto">
+          <a href="#" class="text-white bg-blue-500 px-4 py-2 rounded">Home</a>
+          <a href="#" class="text-gray-800 hover:text-blue-500">Features</a>
+          <a href="#" class="text-gray-800 hover:text-blue-500">Pricing</a>
+          <a href="#" class="text-gray-800 hover:text-blue-500">FAQs</a>
+          <a href="#" class="text-gray-800 hover:text-blue-500">About</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="container mx-auto px-6 py-8 md:max-w-[936px]">
+    <div class="flex justify-center mb-4">
+      <div class="inline-block bg-purple-600 text-white text-3xl font-bold p-3 rounded-lg">B</div>
+    </div>
+    <h1 class="text-3xl font-medium mb-2 text-center font-roboto">Create Product</h1>
+    <p class="text-gray-600 font-roboto font-light md:text-center">
+      Below is an example form built entirely with Tailwind's form classes. Each required form group has a validation
+      state that can be triggered by attempting to submit the form without completing it.
+    </p>
+
+    <form id="product-form" class="md:px-[140px]">
+      <h2 class="text-xl font-semibold mb-2 mt-8">Detail Product</h2>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm mb-2 font-roboto font-normal leading-6">Product name</label>
+        <input id="product-name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none" type="text" />
+        <p id="product-name-error" class="text-red-500 text-sm hidden">Product name is required.</p>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm mb-2 font-roboto font-normal leading-6">Product Category</label>
+        <select id="product-category"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          <option value="">Choose...</option>
+          <option>Category 1</option>
+          <option>Category 2</option>
+          <option>Category 3</option>
+        </select>
+        <p id="product-category-error" class="text-red-500 text-sm hidden">Product category is required.</p>
+      </div>
+
+      <div class="relative mb-4">
+        <input type="file" id="file-input" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+        <button id="file-button"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full md:w-[202px]">Choose
+          File</button>
+        <span id="file-name" class="text-gray-700 mt-2 block"></span>
+        <p id="file-error" class="text-red-500 text-sm hidden">Please choose a file.</p>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm mb-2 font-roboto font-normal leading-6">Product Freshness</label>
+        <div class="mb-2">
+          <label class="inline-flex items-center">
+            <input type="radio" name="freshness" value="new" class="form-radio" />
+            <span class="ml-2 font-roboto font-normal leading-6">Brand New</span>
+          </label>
+        </div>
+        <div class="mb-2">
+          <label class="inline-flex items-center">
+            <input type="radio" name="freshness" value="second" class="form-radio" />
+            <span class="ml-2 font-roboto font-normal leading-6">Second Hand</span>
+          </label>
+        </div>
+        <div class="mb-2">
+          <label class="inline-flex items-center">
+            <input type="radio" name="freshness" value="refurbished" class="form-radio" />
+            <span class="ml-2 font-roboto font-normal leading-6">Refurbished</span>
+          </label>
+        </div>
+        <p id="freshness-error" class="text-red-500 text-sm hidden">Please select product freshness.</p>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm mb-2 font-roboto font-normal leading-6">Additional Description</label>
+        <textarea id="description"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-6 focus:outline-none focus:shadow-outline"
+          rows="3"></textarea>
+        <p id="description-error" class="text-red-500 text-sm hidden">Description is required.</p>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm mb-2 font-roboto font-normal leading-6">Product Price</label>
+        <input id="product-price" placeholder="$ 1"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none" type="number"
+          min="1" step="0.01" />
+        <p id="product-price-error" class="text-red-500 text-sm hidden">Product price is required.</p>
+      </div>
+
+      <div class="flex items-center mt-11">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold mb-4">List Product</h2>
+      <div class="mb-4">
+        <input id="search-input" type="text" placeholder="Search by Product Name"
+          class="shadow appearance-none border rounded py-2 px-3  w-full lg:w-auto  leading-tight focus:outline-none focus:shadow-outline">
+        <button id="delete-btn" class="bg-red-500 text-white px-4 py-2 rounded mt-4 lg:ml-2">Deletion</button>
+        <button id="search-btn" class="bg-blue-500 text-white px-4 py-2 rounded ml-2 ">Search</button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="border border-gray-300 px-4 py-2">No</th>
+              <th class="border border-gray-300 px-4 py-2">Product Name</th>
+              <th class="border border-gray-300 px-4 py-2">Product Category</th>
+              <th class="border border-gray-300 px-4 py-2">Image of Product</th>
+              <th class="border border-gray-300 px-4 py-2">Product Freshness</th>
+              <th class="border border-gray-300 px-4 py-2">Additional Description</th>
+              <th class="border border-gray-300 px-4 py-2">Product Price</th>
+            </tr>
+          </thead>
+          <tbody id="product-list">
+          </tbody>
+        </table>
+      </div>
+    </div>
+</body>
+
+<!-- Mendeteksi Dan Menampilkan Nama File Yang Dipilih  -->
+<script>
+  const fileInput = document.getElementById("file-input");
+  const fileButton = document.getElementById("file-button");
+  const fileName = document.getElementById("file-name");
+
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files.length > 0) {
+      const selectedFileName = fileInput.files[0].name;
+      fileButton.textContent = selectedFileName;
+    } else {
+      fileButton.textContent = "Choose File";
+    }
+  });
+</script>
+
+<!-- Mengontrol Perilaku Menu Dropdown (Mobile)-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+
+    menuBtn.addEventListener("click", function () {
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("grid", "grid-cols-1");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("grid", "grid-cols-1");
+      }
+    });
+  });
+</script>
+
+<!-- Product Management -->
+<script>
+  let products = [];
+  let nextProductId = 1001;
+
+  function addProduct(name, category, image, freshness, description, price) {
+    const product = {
+      no: nextProductId++,
+      name,
+      category,
+      image,
+      freshness,
+      description,
+      price
+    };
+    products.push(product);
+    updateProductList();
+  }
+
+  function updateProductList(filteredProducts = products) {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '';
+
+    if (filteredProducts.length === 0) {
+      const noProductRow = document.createElement('tr');
+      noProductRow.innerHTML = `<td colspan="7" class="text-center py-4 text-gray-500">No products found</td>`;
+      productList.appendChild(noProductRow);
+    } else {
+      filteredProducts.forEach(product => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="border border-gray-300 px-4 py-2">${product.no}</td>
+          <td class="border border-gray-300 px-4 py-2">${product.name}</td>
+          <td class="border border-gray-300 px-4 py-2">${product.category}</td>
+          <td class="border border-gray-300 px-4 py-2">${product.image}</td>
+          <td class="border border-gray-300 px-4 py-2">${product.freshness}</td>
+          <td class="border border-gray-300 px-4 py-2">${product.description}</td>
+          <td class="border border-gray-300 px-4 py-2">$${product.price}</td>
+        `;
+        productList.appendChild(row);
+      });
+    }
+  }
+</script>
+
+<!-- Form Validation -->
+<script>
+  const form = document.getElementById('product-form');
+
+  function clearError(input, errorElement) {
+    input.classList.remove('border-red-500');
+    errorElement.classList.add('hidden');
+  }
+
+  function showError(input, errorElement) {
+    input.classList.add('border-red-500');
+    errorElement.classList.remove('hidden');
+  }
+
+  function validateForm() {
+    let valid = true;
+    resetErrorStates();
+
+    // Validate product name
+    const productName = document.getElementById('product-name');
+    if (productName.value.trim() === '') {
+      valid = false;
+      showError(productName, document.getElementById('product-name-error'));
+    }
+
+    // Validate product category
+    const productCategory = document.getElementById('product-category');
+    if (productCategory.value === '') {
+      valid = false;
+      showError(productCategory, document.getElementById('product-category-error'));
+    }
+
+    // Validate file selection
+    const fileInput = document.getElementById('file-input');
+    if (!fileInput.files.length) {
+      valid = false;
+      document.getElementById('file-error').classList.remove('hidden');
+    }
+
+    // Validate product freshness
+    const freshnessOptions = document.getElementsByName('freshness');
+    const isFreshnessSelected = Array.from(freshnessOptions).some(input => input.checked);
+    if (!isFreshnessSelected) {
+      valid = false;
+      document.getElementById('freshness-error').classList.remove('hidden');
+    }
+
+    // Validate additional description
+    const description = document.getElementById('description');
+    if (description.value.trim() === '') {
+      valid = false;
+      showError(description, document.getElementById('description-error'));
+    }
+
+    // Validate product price
+    const productPrice = document.getElementById('product-price');
+    if (productPrice.value.trim() === '') {
+      valid = false;
+      showError(productPrice, document.getElementById('product-price-error'));
+    }
+
+    return valid;
+  }
+
+  function resetErrorStates() {
+    document.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+    document.querySelectorAll('.hidden').forEach(el => el.classList.add('hidden'));
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (validateForm()) {
+      const name = document.getElementById('product-name').value;
+      const category = document.getElementById('product-category').value;
+      const image = document.getElementById('file-input').files[0] ? document.getElementById('file-input').files[0].name : 'No image';
+      const freshness = document.querySelector('input[name="freshness"]:checked').value;
+      const description = document.getElementById('description').value;
+      const price = document.getElementById('product-price').value;
+
+      addProduct(name, category, image, freshness, description, price);
+      Swal.fire({
+        title: "Succeed!",
+        text: "Product added successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+        customClass: {
+          confirmButton: 'bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded'
+        }
+      });
+
+      // Reset form
+      this.reset();
+      fileButton.textContent = "Choose File";
+    }
+  });
+</script>
+
+<!-- Product List Management -->
+<script>
+  document.getElementById('delete-btn').addEventListener('click', function () {
+    if (products.length > 0) {
+      products.pop();
+      updateProductList();
+    }
+  });
+
+  document.getElementById('search-btn').addEventListener('click', function () {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const filteredProducts = products.filter(p => p.name.toLowerCase().includes(searchTerm));
+
+    if (filteredProducts.length === 0) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'No products found',
+        text: `No products match your search for "${searchTerm}"`,
+      });
+    }
+
+    updateProductList(filteredProducts);
+  });
+</script>
+
+
+
+
+
+
+</html>
