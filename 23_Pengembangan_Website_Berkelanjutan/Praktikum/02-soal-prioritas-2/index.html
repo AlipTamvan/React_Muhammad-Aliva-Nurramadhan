@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimized Non-Green Web Page</title>
+    <style>
+      /* Gunakan warna yang lebih gelap dan hemat energi */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #333333;
+      }
+      header,
+      footer {
+        background-color: #333333; /* Warna lebih gelap (abu-abu tua) */
+        padding: 20px;
+        text-align: center;
+        color: #ffffff; /* Teks berwarna putih untuk kontras */
+      }
+      main {
+        padding: 20px;
+        background-color: #f8f8f8; /* Warna latar belakang lebih lembut */
+      }
+      .high-res-background {
+        width: 100%;
+        height: auto;
+        max-height: 300px; /* Batasi tinggi video untuk menghemat energi */
+      }
+      .content {
+        margin-bottom: 20px;
+      }
+      .link-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .link-list li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to My Optimized Web Page</h1>
+    </header>
+
+    <!-- Optimasi video dengan memperkecil urukuran video lebih ringan -->
+    <video autoplay loop muted class="high-res-background">
+      <source src="forest_compress.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <main>
+      <section class="content">
+        <h2>About Me</h2>
+        <!-- Optimasi gambar dengan dimensi dan kompresi yang lebih baik -->
+        <img
+          src="/api/placeholder/800/600"
+          alt="Optimized Image"
+          width="800"
+          height="600"
+        />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          vitae velit ex.
+        </p>
+      </section>
+      <section class="content">
+        <h2>My Interests</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          vitae velit ex.
+        </p>
+        <ul class="link-list">
+          <li><a href="#">Interest 1</a></li>
+          <li><a href="#">Interest 2</a></li>
+          <li><a href="#">Interest 3</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Optimized Web Page</p>
+    </footer>
+  </body>
+</html>
